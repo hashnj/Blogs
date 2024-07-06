@@ -112,7 +112,7 @@ const Blogs: React.FC = () => {
                             />
                             <button className="bg-green-500 absolute top-[112px] text-xl px-4 py-1 rounded-md right-20" onClick={()=>{
                                 postBlog();
-                                location.reload();
+                                // location.reload();
                                 setActivee(false);
                                 
                             }}>Publish</button>
