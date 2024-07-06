@@ -55,6 +55,7 @@ const Blogs: React.FC = () => {
             toast.success('Blog Posted');
             location.reload();
         })
+        setActivee(false);
         console.log("Posting blog:", { title, content });
         nav('/blogs')
     }
@@ -124,7 +125,6 @@ const Blogs: React.FC = () => {
                             <button className="bg-green-500 absolute top-[112px] text-xl px-4 py-1 rounded-md right-20" onClick={()=>{
                                 postBlog();
                                 // location.reload();
-                                setActivee(false);
                                 
                             }}>Publish</button>
                         </div>
