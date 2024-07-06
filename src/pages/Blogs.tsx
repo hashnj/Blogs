@@ -4,14 +4,14 @@ import { Nav } from "../components/Nav";
 import { Getdata } from "../hooks";
 import axios from "axios";
 import { Backend_Url } from "../config";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Blogs: React.FC = () => {
     const { loading, blogs } = Getdata();
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [activee, setActivee] = useState(false);
-    // const nav=useNavigate();
+    const nav=useNavigate();
     const Skeleton: React.FC = () => (
         <>
             <Nav />
@@ -51,7 +51,7 @@ const Blogs: React.FC = () => {
             console.log(res.data)
         })
         console.log("Posting blog:", { title, content });
-        location.reload();
+        nav('/blogs')
     };
 
     if (loading) {
