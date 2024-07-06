@@ -5,6 +5,7 @@ import { Getdata } from "../hooks";
 import axios from "axios";
 import { Backend_Url } from "../config";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const Blogs: React.FC = () => {
     const { loading, blogs } = Getdata();
@@ -48,7 +49,10 @@ const Blogs: React.FC = () => {
                 'Content-Type':'application/json'
             }
         }).then((res)=>{
-            console.log(res.data)
+            // console.log(res.data)
+            console.log(res);
+            toast.success('Blog Posted');
+            location.reload();
         })
         console.log("Posting blog:", { title, content });
         nav('/blogs')
@@ -59,6 +63,8 @@ const Blogs: React.FC = () => {
     }
 
     return (
+    <>
+        <ToastContainer position="bottom-right"/>
         <div>
             <Nav />
             <div className={`flex justify-center`}>
@@ -134,6 +140,7 @@ const Blogs: React.FC = () => {
                 )}
             </div>
         </div>
+        </>
     );
 };
 
