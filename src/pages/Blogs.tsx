@@ -40,6 +40,7 @@ const Blogs: React.FC = () => {
     );
 
     const postBlog = async () => {
+        if(title && content){
         await axios.post(`${Backend_Url}/api/v1/blog`,{
             title,
             content
@@ -56,6 +57,10 @@ const Blogs: React.FC = () => {
         })
         console.log("Posting blog:", { title, content });
         nav('/blogs')
+    }
+    else{
+        toast.error("title & and contents can't be empty.")
+    }
     };
 
     if (loading) {
