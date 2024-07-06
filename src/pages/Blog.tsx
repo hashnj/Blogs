@@ -116,6 +116,7 @@ const Blog: React.FC = () => {
       });
       setEdit(false);
       location.reload();
+      console.log('edit');
     } catch (error) {
       console.error('Error updating blog:', error);
     }
@@ -129,7 +130,7 @@ const Blog: React.FC = () => {
             Authorization: localStorage.getItem('token'),
           },
         });
-        nav(-1);
+        nav('/blogs');
       } catch (error) {
         console.error('Error deleting blog:', error);
       }
