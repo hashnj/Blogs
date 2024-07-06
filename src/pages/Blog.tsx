@@ -67,7 +67,7 @@ const Blog: React.FC = () => {
   const nav = useNavigate();
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
-  const [confirmDelete, setConfirmDelete] = useState(false);
+  // const [confirmDelete, setConfirmDelete] = useState(false);
   const [del, setDel] = useState(false);
 
   useEffect(() => {
@@ -211,12 +211,13 @@ const Blog: React.FC = () => {
                 <div className="font-thin p-2">Author</div>
                 <div className="flex">
                   <div className="rounded-3xl hidden lg:flex h-7 w-7 justify-center items-center bg-yellow-700/30 m-2 font-serif font-semibold">
-                    {blog.author.name[0].toUpperCase()}
+                    {blog.author?blog.author.name[0].toUpperCase():'A'}
                   </div>
                   <div>
-                    <div className="text-gray-500 rounded-sm w-full p-1 font-bold font-serif ml-4 lg:m-0">
-                      {blog.author.name}
+                    <div className="text-gray-500 w-full p-1 font-bold font-serif ml-4 lg:m-0">
+                      {blog.author?blog.author.name:"Anonymus"}
                     </div>
+                    <div className='text-gray-500 ml-4 lg:m-0'>Absolute Legend</div>
                   </div>
                 </div>
                 

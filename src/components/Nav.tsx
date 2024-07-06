@@ -72,11 +72,11 @@ export const Nav = () => {
                     autoClose: 3000,
                     theme: 'dark',
                 });
-            }, 5000); // Show toast after 1 second
+            }, 5000); 
 
             const redirectTimeout = setTimeout(() => {
                 nav('/signin');
-            }, 8000); // Redirect after 4 seconds (3 seconds for toast + 1 second delay)
+            }, 8000); 
 
             return () => {
                 clearTimeout(showToastTimeout);

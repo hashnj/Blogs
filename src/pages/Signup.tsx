@@ -55,6 +55,9 @@ export const Signup = () => {
 
     const handleSubmit = async () => {
         if(validate(inputs.username)){
+            if(inputs.password.length<6){
+                toast.error('6 characters required for Password field')
+            }
             try{
         const data = await fetch(`${Backend_Url}/api/v1/user/signup`, {
             method: 'POST',
@@ -70,9 +73,9 @@ export const Signup = () => {
         localStorage.setItem('tokenExpiry', tokenExpiry.toString());
         if(res.error=='error while signing up'){
             toast.error('already signed up')
-            nav('/signup');
+            nav('/signin');
         }
-        else{
+        else if(res.token){
             toast.success('signedup')
             localStorage.setItem('token',res.token)
             nav('/');

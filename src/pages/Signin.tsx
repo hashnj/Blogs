@@ -53,6 +53,10 @@ export const Signin = () => {
     const handleSubmit = async () => {
         console.log(inputs);
         if (validate(inputs.username)) {
+            if(inputs.password.length<6){
+            toast.error('Password');
+
+            }
             try {
                 const data = await fetch(`${Backend_Url}/api/v1/user/signin`, {
                     method: 'post',
@@ -61,12 +65,13 @@ export const Signin = () => {
                 });
                 const res = await data.json();
                 console.log(res);
-
+                if(res.token){
                 const tokenExpiry = new Date().getTime() + (60*60*1000); 
                 localStorage.setItem('token', res.token);
                 localStorage.setItem('tokenExpiry', tokenExpiry.toString());
-
+                
                 nav('/');
+                }
             } catch (e: any) {
                 console.log(e);
                 toast.error('Not registered');
@@ -77,7 +82,7 @@ export const Signin = () => {
     }
 
     if (loading) {
-        nav(-1);
+        nav('/');
     } else {
         return (
             <>

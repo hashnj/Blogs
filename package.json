@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@hashnj/blobx-common": "^1.0.0",
-    "@hashnj/mediumx-common": "^1.0.0",
     "@headlessui/react": "^2.1.0",
     "@heroicons/react": "^2.1.4",
     "@types/react-toastify": "^4.1.0",
